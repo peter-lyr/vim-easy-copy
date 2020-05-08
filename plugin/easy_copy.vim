@@ -1,4 +1,4 @@
-function! s:dosthhere(dir, start, action, lines)
+function! DoSthHere(dir, start, action, lines)
     "1.记录当前行的行号
     let [current_line_number] = getpos('.')[1:1]
     "2.移动到指定行并开始选择
@@ -40,7 +40,7 @@ endfunction
 
 
 function! Easy_copy()
-    if exists('b:autopairs_loaded')
+    if exists('b:easycopy_loaded')
         return
     end
     let b:easycopy_loaded  = 1
@@ -54,7 +54,7 @@ for dir in dirs:
     for start in range(1, line_nums_to_move):
         for action in actions:
             for lines_to_do in list(range(1, 10))+['b', 'p']:
-                cmd = f"nnoremap {dir}{start}{action[1]}{lines_to_do} :silent call s:dosthhere('{dir}', '{start}', '{action[0]}', '{lines_to_do}')<cr>"
+                cmd = f"nnoremap {dir}{start}{action[1]}{lines_to_do} :silent call DoSthHere('{dir}', '{start}', '{action[0]}', '{lines_to_do}')<cr>"
                 vim.command(cmd)
 EOF
 endfunction
