@@ -45,10 +45,16 @@ function! Easy_copy()
     end
     let b:easycopy_loaded  = 1
 
+    if exists('g:easy_copy_max_range')
+        let g:line_nums_to_move = g:easy_copy_max_range <= 100 ? g:easy_copy_max_range : 100
+    else
+        let g:line_nums_to_move = 36
+    endif
+
     python3 << EOF
 import vim
 dirs = ['-', '=']
-line_nums_to_move = 36
+line_nums_to_move = vim.eval('g:line_nums_to_move')
 actions = [('delete', 'd'), ('copy', 'p'), ('move', 'm')]
 for dir in dirs:
     for start in range(1, line_nums_to_move):
