@@ -5,7 +5,7 @@ By using vim-easy-copy plugin, you can quickly copy, cut, or delete several rows
 If you want to copy the code block quickly, you can install another of my plug-ins, vim-get-blocks(https://github.com/peter-lyr/vim-get-blocks), before installing this one.
 
 ## Install
-I prefer to use the plug-vim( https://github.com/junegunn/vim-plug/ ) manager to install:
+I prefer to use the vim-plug( https://github.com/junegunn/vim-plug/ ) manager to install:
 ```vim
 call plug#begin('~/.vim/bundle')
 "if you like:

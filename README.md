@@ -5,7 +5,7 @@
 如果希望可以快速复制代码块，可以在安装此插件前安装我的另一个插件vim-get-blocks。
 
 ## 安装
-我更倾向于使用plug-vim( https://github.com/junegunn/vim-plug/ )管理器来安装：
+我更倾向于使用vim-plug( https://github.com/junegunn/vim-plug/ )管理器来安装：
 ```vim
 call plug#begin('~/.vim/bundle')
 "如果你喜欢:

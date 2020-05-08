@@ -65,4 +65,4 @@ for dir in dirs:
 EOF
 endfunction
 
-au BufEnter * :call Easy_copy()
+call Easy_copy()
