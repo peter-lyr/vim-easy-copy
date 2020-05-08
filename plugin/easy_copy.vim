@@ -54,7 +54,7 @@ function! Easy_copy()
     python3 << EOF
 import vim
 dirs = ['-', '=']
-line_nums_to_move = vim.eval('g:line_nums_to_move')
+line_nums_to_move = int(vim.eval('g:line_nums_to_move'))
 actions = [('delete', 'd'), ('copy', 'p'), ('move', 'm')]
 for dir in dirs:
     for start in range(1, line_nums_to_move):
