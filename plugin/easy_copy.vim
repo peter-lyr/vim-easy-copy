@@ -64,8 +64,13 @@ for dir in dirs:
                 cmd = f"nnoremap {dir}{start}{action[1]}{lines_to_do} :silent call DoSthHere('{dir}', '{start}', '{action[0]}', '{lines_to_do}')<cr>"
                 vim.command(cmd)
 EOF
-    ec '[EasyCopy] Loaded! Max lines you can reach: ' .(g:line_nums_to_move - 1)
+    if !exists('g:loadeasy_atonce')
+        ec '[EasyCopy] Loaded! Max lines you can reach: ' .(g:line_nums_to_move - 1)
+    endif
 endfunction
 
-"command! EasyCopy call Easy_copy()
-autocmd BufWinEnter * :call Easy_copy()
+if exists('g:loadeasy_atonce')
+    autocmd BufWinEnter * :call Easy_copy()
+else
+    command! EasyCopy call Easy_copy()
+endif
