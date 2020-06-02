@@ -67,4 +67,5 @@ EOF
     ec '[EasyCopy] Loaded! Max lines you can reach: ' .(g:line_nums_to_move - 1)
 endfunction
 
-command! EasyCopy call Easy_copy()
+"command! EasyCopy call Easy_copy()
+autocmd BufWinEnter * :call Easy_copy()
