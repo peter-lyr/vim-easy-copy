@@ -40,11 +40,11 @@ endfunction
 
 
 function! Easy_copy()
-    if exists('b:easycopy_loaded')
+    if exists('g:easycopy_loaded')
         ec "[EasyCopy] Wouldn't load twice! Max lines you can reach: " .(g:line_nums_to_move - 1)
         return
     end
-    let b:easycopy_loaded  = 1
+    let g:easycopy_loaded  = 1
 
     if exists('g:easy_copy_max_range')
         let g:line_nums_to_move = g:easy_copy_max_range <= 100 ? g:easy_copy_max_range : 100
@@ -69,8 +69,7 @@ EOF
     endif
 endfunction
 
-if exists('g:loadeasy_atonce')
-    autocmd BufWinEnter * :call Easy_copy()
-else
-    command! EasyCopy call Easy_copy()
+if and(exists('g:loadeasy_atonce'), g:loadeasy_atonce == 1)
+    autocmd VimEnter * :call Easy_copy()
 endif
+command! EasyCopy call Easy_copy()
