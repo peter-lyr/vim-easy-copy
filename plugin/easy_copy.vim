@@ -41,7 +41,7 @@ endfunction
 
 function! Easy_copy()
     if exists('b:easycopy_loaded')
-        ec "[EasyCopy] Would'n load twice! Max lines you can reach: " .(g:easy_copy_max_range - 1)
+        ec "[EasyCopy] Wouldn't load twice! Max lines you can reach: " .(g:line_nums_to_move - 1)
         return
     end
     let b:easycopy_loaded  = 1
