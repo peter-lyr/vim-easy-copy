@@ -41,7 +41,7 @@ endfunction
 
 function! Easy_copy()
     if exists('b:easycopy_loaded')
-        ec "EasyCopy would'n load twice! Max lines you can reach: " .(g:easy_copy_max_range - 1)
+        ec "[EasyCopy] Would'n load twice! Max lines you can reach: " .(g:easy_copy_max_range - 1)
         return
     end
     let b:easycopy_loaded  = 1
@@ -64,7 +64,7 @@ for dir in dirs:
                 cmd = f"nnoremap {dir}{start}{action[1]}{lines_to_do} :silent call DoSthHere('{dir}', '{start}', '{action[0]}', '{lines_to_do}')<cr>"
                 vim.command(cmd)
 EOF
-    ec 'EasyCopy Loaded! Max lines you can reach: ' .(g:line_nums_to_move - 1)
+    ec '[EasyCopy] Loaded! Max lines you can reach: ' .(g:line_nums_to_move - 1)
 endfunction
 
 command! EasyCopy call Easy_copy()
