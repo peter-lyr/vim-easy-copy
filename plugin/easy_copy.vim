@@ -64,5 +64,3 @@ for dir in dirs:
                 vim.command(cmd)
 EOF
 endfunction
-
-call Easy_copy()
