@@ -69,7 +69,7 @@ EOF
     endif
 endfunction
 
-if and(exists('g:loadeasy_atonce'), g:loadeasy_atonce == 1)
+if exists('g:loadeasy_atonce') && g:loadeasy_atonce == 1
     autocmd VimEnter * :call Easy_copy()
 endif
 command! EasyCopy call Easy_copy()
