@@ -41,21 +41,21 @@ endfunction
 
 function! Easy_copy()
     if exists('g:easycopy_loaded')
-        ec "[EasyCopy] Wouldn't load twice! Max lines you can reach: " .(g:line_nums_to_move - 1)
+        ec "[EasyCopy] Wouldn't load twice! Max lines you can reach: " .(s:line_nums_to_move - 1)
         return
     end
     let g:easycopy_loaded  = 1
 
     if exists('g:easy_copy_max_range')
-        let g:line_nums_to_move = g:easy_copy_max_range <= 100 ? g:easy_copy_max_range : 100
+        let s:line_nums_to_move = g:easy_copy_max_range <= 100 ? g:easy_copy_max_range : 100
     else
-        let g:line_nums_to_move = 36
+        let s:line_nums_to_move = 36
     endif
 
     python3 << EOF
 import vim
 dirs = ['-', '=']
-line_nums_to_move = int(vim.eval('g:line_nums_to_move'))
+line_nums_to_move = int(vim.eval('s:line_nums_to_move'))
 actions = [('delete', 'd'), ('copy', 'p'), ('move', 'm')]
 for dir in dirs:
     for start in range(1, line_nums_to_move):
@@ -65,7 +65,7 @@ for dir in dirs:
                 vim.command(cmd)
 EOF
     if !exists('g:loadeasy_atonce')
-        ec '[EasyCopy] Loaded! Max lines you can reach: ' .(g:line_nums_to_move - 1)
+        ec '[EasyCopy] Loaded! Max lines you can reach: ' .(s:line_nums_to_move - 1)
     endif
 endfunction
 
